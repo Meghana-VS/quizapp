@@ -8,11 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-/*
-  Represents a single quiz (created by Admin)
- */
 @Entity
-@Table(name = "quizzes")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,13 +22,7 @@ public class Quiz {
     @Column(nullable = false)
     private String title;
 
-    private String description;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "created_by")
-    private User createdBy;
-
     //To fetch all the questions belonging to this quiz
-    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany
     private List<Question> questions;
 }

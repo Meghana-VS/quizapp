@@ -1,33 +1,20 @@
 package com.quizapp.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "questions")
 @Data
-public class Question {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class QuestionWrapper {
     private Long id;
-
-    private String category;
-
-    private String difficultyLevel;
-
     private String optionA;
-
     private String optionB;
-
     private String optionC;
-
     private String optionD;
-
     private String question;
-
-    private String correctAnswer;
 }
